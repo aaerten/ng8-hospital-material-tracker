@@ -1,0 +1,34 @@
+<div class="title">
+<h1>Equipments Table of Medyana</h1>
+<app-add-equipment></app-add-equipment>
+</div>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th *ngFor="let col of columns">{{col}}</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of equipments">
+        <th scope="row">{{data.id}}</th>
+        <td>{{data.equipment_name}}</td>
+        <td>{{data.date_of_supply}}</td>
+        <td>{{data.number_of_equipments}}</td>
+        <td>{{data.unit_price}}</td>
+        <td>{{data.usage_rate}}</td>
+        <td>{{data.clinic_name}}</td>
+        <td><app-edit-equipment
+            formId={{data.id}}
+            formEquipmentName={{data.equipment_name}}
+            formDateOfSupply={{data.date_of_supply}}
+            formNumberOfEquipment={{data.number_of_equipments}}
+            formUnitPrice={{data.unit_price}}
+            formUsageRate={{data.usage_rate}}
+            formClinicName={{data.clinic_name}}></app-edit-equipment></td>
+        <td><app-delete-equipment id={{data.id}}></app-delete-equipment></td>
+    </tr>
+    </tbody>
+</table>

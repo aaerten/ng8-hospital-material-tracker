@@ -1,0 +1,15 @@
+h1{
+  font-family: sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.title{
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+}
+
+
+

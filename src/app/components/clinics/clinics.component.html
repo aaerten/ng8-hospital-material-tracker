@@ -1,0 +1,24 @@
+<div class="title">
+<h1>Clinics Table of Medyana</h1>
+<app-add-clinic></app-add-clinic>
+</div>
+
+<div class="table-div">
+<table class="table table-hover">
+    <thead>
+    <tr class="table-active">
+        <th scope="col" *ngFor="let col of columns">{{col}}</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of clinics">
+        <th scope="row">{{data.id}}</th>
+        <td scope="row">{{data.clinic_name}}</td>
+        <td scope="row"><app-edit-clinic formClinicId={{data.id}} formClinicName={{data.clinic_name}}></app-edit-clinic></td>
+        <td scope="row"><app-delete-clinic id={{data.id}}></app-delete-clinic></td>
+    </tr>
+    </tbody>
+</table>
+</div>
