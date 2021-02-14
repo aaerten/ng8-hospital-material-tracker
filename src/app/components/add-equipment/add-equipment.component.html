@@ -19,7 +19,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form [formGroup]="equipmentForm" (ngSubmit)="addEquipment(equipmentForm)">
       <div class="form-group">
         <label for="">Equipment ID</label>
         <div class="input-group">

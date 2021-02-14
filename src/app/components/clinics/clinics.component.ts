@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {RestService} from'../../rest.service';
 import {Clinics} from '../../clinics';
 
-
 @Component({
   selector: 'app-clinics',
   templateUrl: './clinics.component.html',

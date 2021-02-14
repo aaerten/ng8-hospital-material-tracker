@@ -19,7 +19,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form [formGroup]="equipmentEditForm" (ngSubmit)="editEquipment(equipmentEditForm)">
       <div class="form-group">
         <label for="">Equipment ID</label>
         <div class="input-group">
@@ -28,7 +28,6 @@
             class="form-control"
             id="recipient-name"
             value="10"
-            disabled
             formControlName="id"
             value="{{ formId }}"
           />

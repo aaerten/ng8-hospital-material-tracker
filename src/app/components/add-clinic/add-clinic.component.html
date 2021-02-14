@@ -19,7 +19,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <form formGroup="clinicForm" (ngSubmit)="addClinic(clinicForm)">
+    <form [formGroup]="clinicForm" (ngSubmit)="addClinic(clinicForm)">
       <div class="form-group">
         <label for="">Clinic ID</label>
         <div class="input-group">

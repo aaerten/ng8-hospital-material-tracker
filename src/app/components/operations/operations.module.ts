@@ -6,6 +6,7 @@ import { AddClinicComponent } from '../add-clinic/add-clinic.component';
 import { AddEquipmentComponent } from '../add-equipment/add-equipment.component';
 import { DeleteClinicComponent } from '../delete-clinic/delete-clinic.component';
 import { DeleteEquipmentComponent } from '../delete-equipment/delete-equipment.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,7 +15,7 @@ import { DeleteEquipmentComponent } from '../delete-equipment/delete-equipment.c
 @NgModule({
   declarations: [EditClinicComponent,EditEquipmentComponent,AddClinicComponent,AddEquipmentComponent,DeleteClinicComponent,DeleteEquipmentComponent],
   imports: [
-    CommonModule
+    CommonModule, FormsModule, ReactiveFormsModule
   ],
   exports: [EditClinicComponent, EditEquipmentComponent, AddClinicComponent, AddEquipmentComponent, DeleteClinicComponent, DeleteEquipmentComponent]
 })

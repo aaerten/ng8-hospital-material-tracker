@@ -27,7 +27,7 @@
   ],
   "Equipments": [
     {
-      "id": 0,
+      "id": 1,
       "equipment_name": "Equipment1",
       "date_of_supply": "22/11/2021",
       "number_of_equipments": 1,
@@ -36,7 +36,7 @@
       "clinic_name": "Clinic1"
     },
     {
-      "id": 1,
+      "id": 2,
       "equipment_name": "Equipment2",
       "date_of_supply": "22/11/2021",
       "number_of_equipments": 2,
@@ -45,7 +45,7 @@
       "clinic_name": "Clinic2"
     },
     {
-      "id": 2,
+      "id": 3,
       "equipment_name": "Equipment3",
       "date_of_supply": "22/11/2021",
       "number_of_equipments": 3,
@@ -54,7 +54,7 @@
       "clinic_name": "Clinic3"
     },
     {
-      "id": 3,
+      "id": 4,
       "equipment_name": "Equipment4",
       "date_of_supply": "22/11/2021",
       "number_of_equipments": 4,

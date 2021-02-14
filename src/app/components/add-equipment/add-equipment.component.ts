@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormControl, FormGroup } from '@angular/forms'
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -29,7 +29,7 @@ export class AddEquipmentComponent implements OnInit {
     this.modalService.open(content, { centered: true });
   }
 
-  addClinic() {
+  addEquipment() {
     var body = { ...this.equipmentForm.value };
     console.log(body);
   }

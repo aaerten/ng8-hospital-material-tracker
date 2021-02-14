@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormControl, FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'app-edit-equipment',
@@ -7,6 +8,16 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./edit-equipment.component.css']
 })
 export class EditEquipmentComponent implements OnInit {
+
+    equipmentEditForm = new FormGroup({
+    id: new FormControl(''),
+    equipment_name: new FormControl(''),
+    date_of_supply: new FormControl(''),
+    number_of_equipments: new FormControl(''),
+    unit_price: new FormControl(''),
+    usage_rate: new FormControl(''),
+    clinic_name: new FormControl(''),
+  });
 
   constructor(private modalService: NgbModal) { }
 
@@ -23,6 +34,11 @@ export class EditEquipmentComponent implements OnInit {
 
   openVerticallyCentered(content) {
     this.modalService.open(content, { centered: true });
+  }
+
+  editEquipment() {
+    var body = { ...this.equipmentEditForm.value };
+    console.log(body);
   }
 
 }
