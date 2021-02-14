@@ -11,9 +11,7 @@ import {Clinics} from '../../clinics';
 export class ClinicsComponent implements OnInit{
 
   constructor(private rs : RestService) { }
-
-  columns = ["Id","Clinics Name"];
-
+  
   clinics : Clinics[]=[];
 
   ngOnInit(): void {
