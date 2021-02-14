@@ -1,35 +1,83 @@
 <div class="title">
-<h1>Equipments Table of Medyana</h1>
-<app-add-equipment></app-add-equipment>
+  <h1>Equipments Table of Medyana</h1>
+  <app-add-equipment></app-add-equipment>
 </div>
+
 <div class="table-div">
-<table class="table table-hover">
+  <nav class="navbar navbar-light bg-light">
+    <div class="form-group w-25">
+      <input
+        class="form-control"
+        type="text"
+        name="equipment_name"
+        [(ngModel)]="equipment_name"
+        (ngModelChange)="Search()"
+        placeholder="Search with Name"
+      />
+    </div>
+  </nav>
+  <table class="table table-hover">
     <thead>
-    <tr>
-        <th *ngFor="let col of columns">{{col}}</th>
+      <tr>
+        <th scope="col" (click)="sort('id')">
+          Id&nbsp;<i class="fa fa-sort"></i>
+        </th>
+        <th scope="col" (click)="sort('equipment_name')">
+          Equipment Name&nbsp;<i class="fa fa-sort"></i>
+        </th>
+        <th scope="col" (click)="sort('date_of_supply')">
+          Date of Supply&nbsp;<i class="fa fa-sort"></i>
+        </th>
+        <th scope="col" (click)="sort('number_of_equipments')">
+          Number of Equipment&nbsp;<i class="fa fa-sort"></i>
+        </th>
+        <th scope="col" (click)="sort('unit_price')">
+          Unit Price&nbsp;<i class="fa fa-sort"></i>
+        </th>
+        <th scope="col" (click)="sort('usage_rate')">
+          Usage Rate&nbsp;<i class="fa fa-sort"></i>
+        </th>
+        <th scope="col" (click)="sort('clinic_name')">
+          Clinic Name&nbsp;<i class="fa fa-sort"></i>
+        </th>
         <th>Edit</th>
         <th>Delete</th>
-    </tr>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let data of equipments">
-        <th scope="row">{{data.id}}</th>
-        <td>{{data.equipment_name}}</td>
-        <td>{{data.date_of_supply}}</td>
-        <td>{{data.number_of_equipments}}</td>
-        <td>{{data.unit_price}}</td>
-        <td>{{data.usage_rate}}</td>
-        <td>{{data.clinic_name}}</td>
-        <td><app-edit-equipment
-            formId={{data.id}}
-            formEquipmentName={{data.equipment_name}}
-            formDateOfSupply={{data.date_of_supply}}
-            formNumberOfEquipment={{data.number_of_equipments}}
-            formUnitPrice={{data.unit_price}}
-            formUsageRate={{data.usage_rate}}
-            formClinicName={{data.clinic_name}}></app-edit-equipment></td>
-        <td><app-delete-equipment id={{data.id}}></app-delete-equipment></td>
-    </tr>
+      <tr
+        *ngFor="
+          let data of equipments
+            | orderBy: key:reverse
+            | paginate: { itemsPerPage: 5, currentPage: p }
+        "
+      >
+        <th scope="row">{{ data.id }}</th>
+        <td scope="row">{{ data.equipment_name }}</td>
+        <td scope="row">{{ data.date_of_supply }}</td>
+        <td scope="row">{{ data.number_of_equipments }}</td>
+        <td scope="row">{{ data.unit_price }}</td>
+        <td scope="row">{{ data.usage_rate }}</td>
+        <td scope="row">{{ data.clinic_name }}</td>
+        <td scope="row">
+          <app-edit-equipment
+            formId="{{ data.id }}"
+            formEquipmentName="{{ data.equipment_name }}"
+            formDateOfSupply="{{ data.date_of_supply }}"
+            formNumberOfEquipment="{{ data.number_of_equipments }}"
+            formUnitPrice="{{ data.unit_price }}"
+            formUsageRate="{{ data.usage_rate }}"
+            formClinicName="{{ data.clinic_name }}"
+          ></app-edit-equipment>
+        </td>
+        <td>
+          <app-delete-equipment id="{{ data.id }}"></app-delete-equipment>
+        </td>
+      </tr>
     </tbody>
-</table>
+  </table>
+  <pagination-controls
+    class="pages"
+    (pageChange)="p = $event"
+  ></pagination-controls>
 </div>

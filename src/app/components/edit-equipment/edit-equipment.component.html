@@ -30,7 +30,6 @@
             type="number"
             min="1"
             class="form-control"
-            id="recipient-name"
             [(ngModel)]="formId"
             formControlName="id"
           />
@@ -42,7 +41,6 @@
           <input
             type="text"
             class="form-control"
-            id="recipient-name"
             formControlName="equipment_name"
             [(ngModel)]="formEquipmentName"
           />
@@ -54,7 +52,6 @@
           <input
             type="text"
             class="form-control"
-            id="recipient-name"
             formControlName="date_of_supply"
             [(ngModel)]="formDateOfSupply"
           />
@@ -108,13 +105,12 @@
           <input
             type="text"
             class="form-control"
-            id="recipient-name"
             formControlName="clinic_name"
             [(ngModel)]="formClinicName"
           />
         </div>
       </div>
-      <button type="submit" class="btn btn-light">Edit</button>
+      <button type="submit" class="btn btn-light btn_right">Edit</button>
     </form>
   </div>
   <div class="modal-footer">

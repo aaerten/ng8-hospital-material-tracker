@@ -13,6 +13,9 @@ export class ClinicsComponent implements OnInit{
   constructor(private rs : RestService) { }
   
   clinics : Clinics[]=[];
+  clinic_name:any;
+  p: number=1;
+
 
   ngOnInit(): void {
 
@@ -30,4 +33,23 @@ private getAllClinics(){
       (error)=> console.log(error)
     )
   }
+
+Search(){
+  if(this.clinic_name==""){
+    this.ngOnInit();
+  }else{
+    this.clinics=this.clinics.filter(res =>{
+      return res.clinic_name.toLocaleLowerCase().match(this.clinic_name.toLocaleLowerCase());
+    })
+  }
+}
+
+key :string = "id";
+reverse:boolean=false;
+sort(key){
+this.key=key;
+this.reverse= !this.reverse;
+}
+
+
 }

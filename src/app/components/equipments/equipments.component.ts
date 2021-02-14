@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Equipments } from 'src/app/equipments';
 import { RestService } from '../../rest.service';
-
+import { Equipments } from 'src/app/equipments';
 
 @Component({
   selector: 'app-equipments',
@@ -13,12 +12,11 @@ export class EquipmentsComponent implements OnInit {
 
   constructor(private rs: RestService) { }
 
-  columns = ["Id","Equipment Name","Date of Supply","Number of Equipment","Unit Price","Usage Rate","Clinic Name"];
-
   equipments: Equipments[] = [];
+  equipment_name:any;
+  p:number=1;
 
-  ngOnInit() {
-
+  ngOnInit():void{
     this.rs.refreshNeeded$.subscribe(() => {
       this.getAllEquipments();
     })
@@ -32,6 +30,23 @@ export class EquipmentsComponent implements OnInit {
       },
       (error) => console.log(error)
     )
+  }
+
+  Search() {
+    if (this.equipment_name == "") {
+      this.ngOnInit();
+    } else {
+      this.equipments = this.equipments.filter(res => {
+        return res.equipment_name.toLocaleLowerCase().match(this.equipment_name.toLocaleLowerCase());
+      })
+    }
+  }
+
+  key: string = "id";
+  reverse: boolean = false;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
   }
 
 }

@@ -1,25 +1,58 @@
 <div class="title">
-<h1>Clinics Table of Medyana</h1>
-<app-add-clinic></app-add-clinic>
+  <h1>Clinics Table of Medyana</h1>
+  <app-add-clinic></app-add-clinic>
 </div>
 
 <div class="table-div">
-<table class="table table-hover">
+  <nav class="navbar navbar-light bg-light">
+    <div class="form-group w-25">
+      <input
+        class="form-control"
+        type="text"
+        name="clinic_name"
+        [(ngModel)]="clinic_name"
+        (ngModelChange)="Search()"
+        placeholder="Search with Name"
+      />
+    </div>
+  </nav>
+  <table class="table table-hover">
     <thead>
-    <tr>
-        <th scope="col" sortable="id" (sort)="onSort($event)">Id</th>
-        <th scope="col"sortable="name" (sort)="onSort($event)">Clinics Name</th>
+      <tr>
+        <th scope="col" (click)="sort('id')">
+          Id&nbsp;<i class="fa fa-sort"></i>
+        </th>
+        <th scope="col" (click)="sort('clinic_name')">
+          Clinics Name&nbsp;<i class="fa fa-sort"></i>
+        </th>
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
-    </tr>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let data of clinics">
-        <th scope="row">{{data.id}}</th>
-        <td scope="row">{{data.clinic_name}}</td>
-        <td scope="row"><app-edit-clinic formClinicId={{data.id}} formClinicName={{data.clinic_name}}></app-edit-clinic></td>
-        <td scope="row"><app-delete-clinic id={{data.id}}></app-delete-clinic></td>
-    </tr>
+      <tr
+        *ngFor="
+          let data of clinics
+            | orderBy: key:reverse
+            | paginate: { itemsPerPage: 5, currentPage: p }
+        "
+      >
+        <th scope="row">{{ data.id }}</th>
+        <td scope="row">{{ data.clinic_name }}</td>
+        <td scope="row">
+          <app-edit-clinic
+            formClinicId="{{ data.id }}"
+            formClinicName="{{ data.clinic_name }}"
+          ></app-edit-clinic>
+        </td>
+        <td scope="row">
+          <app-delete-clinic id="{{ data.id }}"></app-delete-clinic>
+        </td>
+      </tr>
     </tbody>
-</table>
+  </table>
+  <pagination-controls
+    class="pages"
+    (pageChange)="p = $event"
+  ></pagination-controls>
 </div>

@@ -6,6 +6,9 @@ import { ClinicsComponent } from './clinics.component';
 import { RestService } from 'src/app/rest.service';
 import { OperationsModule } from '../operations/operations.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [ClinicsComponent],
@@ -15,7 +18,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ClinicsRoutingModule,
     OperationsModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2OrderModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule
+    
   ],
   providers:[RestService]
 })

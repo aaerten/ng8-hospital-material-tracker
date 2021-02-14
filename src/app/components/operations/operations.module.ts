@@ -15,7 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [EditClinicComponent,EditEquipmentComponent,AddClinicComponent,AddEquipmentComponent,DeleteClinicComponent,DeleteEquipmentComponent],
   imports: [
-    CommonModule, FormsModule, ReactiveFormsModule
+    CommonModule,FormsModule, ReactiveFormsModule
   ],
   exports: [EditClinicComponent, EditEquipmentComponent, AddClinicComponent, AddEquipmentComponent, DeleteClinicComponent, DeleteEquipmentComponent]
 })
