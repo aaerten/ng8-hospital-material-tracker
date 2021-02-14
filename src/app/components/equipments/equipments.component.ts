@@ -8,6 +8,7 @@ import { RestService } from '../../rest.service';
   templateUrl: './equipments.component.html',
   styleUrls: ['./equipments.component.css']
 })
+
 export class EquipmentsComponent implements OnInit {
 
   constructor(private rs: RestService) { }
@@ -17,6 +18,14 @@ export class EquipmentsComponent implements OnInit {
   equipments: Equipments[] = [];
 
   ngOnInit() {
+
+    this.rs.refreshNeeded$.subscribe(() => {
+      this.getAllEquipments();
+    })
+    this.getAllEquipments();
+  }
+
+  private getAllEquipments() {
     this.rs.getEquipments().subscribe(
       (response) => {
         this.equipments = response;

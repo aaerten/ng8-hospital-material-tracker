@@ -23,6 +23,10 @@
     {
       "id": 6,
       "clinic_name": "Clinic6"
+    },
+    {
+      "id": 7,
+      "clinic_name": "Clinic7"
     }
   ],
   "Equipments": [
@@ -45,22 +49,22 @@
       "clinic_name": "Clinic2"
     },
     {
-      "id": 3,
-      "equipment_name": "Equipment3",
-      "date_of_supply": "22/11/2021",
-      "number_of_equipments": 3,
-      "unit_price": 0.03,
-      "usage_rate": 15,
+      "id": 4,
+      "equipment_name": "Equipment4",
+      "date_of_supply": "22/22/2021",
+      "number_of_equipments": 16,
+      "unit_price": 0.48,
+      "usage_rate": 10,
       "clinic_name": "Clinic3"
     },
     {
-      "id": 4,
-      "equipment_name": "Equipment4",
-      "date_of_supply": "22/11/2021",
-      "number_of_equipments": 4,
-      "unit_price": 0.04,
-      "usage_rate": 20,
-      "clinic_name": "Clinic4"
+      "id": 5,
+      "equipment_name": "Equipment5",
+      "date_of_supply": "22/22/2021",
+      "number_of_equipments": 24,
+      "unit_price": 0.55,
+      "usage_rate": 10,
+      "clinic_name": "Clinic5"
     }
   ]
 }

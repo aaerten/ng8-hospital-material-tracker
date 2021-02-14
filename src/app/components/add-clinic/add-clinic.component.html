@@ -21,10 +21,10 @@
   <div class="modal-body">
     <form [formGroup]="clinicForm" (ngSubmit)="addClinic(clinicForm)">
       <div class="form-group">
-        <label for="">Clinic ID</label>
+        <label for="">Clinic ID (normally this part disabled & automatically)</label>
         <div class="input-group">
           <input
-            type="text"
+            type="number"
             class="form-control"
             id="recipient-name"
             formControlName="id"
@@ -47,4 +47,3 @@
   </div>
   <div class="modal-footer"></div>
 </ng-template>
-

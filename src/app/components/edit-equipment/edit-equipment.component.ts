@@ -1,6 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup } from '@angular/forms'
+import { RestService } from '../../rest.service';
 
 @Component({
   selector: 'app-edit-equipment',
@@ -19,7 +20,7 @@ export class EditEquipmentComponent implements OnInit {
     clinic_name: new FormControl(''),
   });
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private rs: RestService) { }
 
   ngOnInit() {
   }
@@ -36,9 +37,9 @@ export class EditEquipmentComponent implements OnInit {
     this.modalService.open(content, { centered: true });
   }
 
-  editEquipment() {
-    var body = { ...this.equipmentEditForm.value };
-    console.log(body);
+  editEquipment(body) {
+    body = { ...this.equipmentEditForm.value };
+    this.rs.updateEquipmentByID(body.id,body).subscribe();
   }
 
 }

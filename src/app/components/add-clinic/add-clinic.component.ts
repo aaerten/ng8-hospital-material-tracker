@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { RestService } from '../../rest.service';
 
 
 @Component({
@@ -15,18 +16,18 @@ export class AddClinicComponent implements OnInit {
     clinic_name: new FormControl(''),
   });
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private rs: RestService) { }
 
   ngOnInit() {
   }
-  
+
   openVerticallyCentered(content) {
     this.modalService.open(content, { centered: true });
   }
 
-  addClinic(){
-    var body ={...this.clinicForm.value};
-    console.log(body);
+  addClinic(body) {
+    body = { ...this.clinicForm.value };
+    this.rs.addClinic(body).subscribe()
   }
 
 }

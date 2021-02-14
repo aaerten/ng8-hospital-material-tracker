@@ -17,6 +17,14 @@ export class ClinicsComponent implements OnInit{
   clinics : Clinics[]=[];
 
   ngOnInit(): void {
+
+    this.rs.refreshNeeded$.subscribe(()=>{
+      this.getAllClinics();
+    })
+    this.getAllClinics();
+  }
+
+private getAllClinics(){
     this.rs.getClinics().subscribe(
       (response)=>{
         this.clinics=response;

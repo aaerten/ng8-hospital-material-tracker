@@ -1,6 +1,7 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup } from '@angular/forms';
+import { RestService } from '../../rest.service';
 
 @Component({
   selector: 'app-edit-clinic',
@@ -14,7 +15,7 @@ export class EditClinicComponent implements OnInit {
     clinic_name: new FormControl(''),
   });
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private rs: RestService) { }
 
   ngOnInit() {
   }
@@ -27,9 +28,9 @@ export class EditClinicComponent implements OnInit {
     this.modalService.open(content, { centered: true });
   }
 
-  editClinic() {
-    var body = { ...this.clinicEditForm.value };
-    console.log(body);
+  editClinic(body) {
+    body = { ...this.clinicEditForm.value };
+    this.rs.updateClinicByID(body.id, body).subscribe();
   }
 
 
